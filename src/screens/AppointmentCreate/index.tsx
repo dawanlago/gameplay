@@ -31,6 +31,9 @@ export function AppointmentCreate() {
         setOpenGuildsModal(true)
     }
 
+    function handleCloseGuilds() {
+        setOpenGuildsModal(false)
+    }
     function handleGuildSelect(guildSelect: GuildProps) {
         setGuild(guildSelect)
         setOpenGuildsModal(false)
@@ -42,28 +45,22 @@ export function AppointmentCreate() {
             style={styles.container}
 
         >
-
             <ScrollView>
-
                 <View>
-
                     <Header
                         title="Agendar partida"
                     />
-
                     <Text style={[
                         styles.label,
                         { marginLeft: 24, marginTop: 36, marginBottom: 18 }]}
                     >
                         Categoria
                     </Text>
-
                     <CategorySelect
                         hasCheckBox
                         setCategory={setCategory}
                         categorySelected={category}
                     />
-
                     <View style={styles.form}>
                         <RectButton
                             onPress={handleOpenGuilds}
@@ -82,7 +79,6 @@ export function AppointmentCreate() {
                                                 : 'Selecione um servidor'}
                                     </Text>
                                 </View>
-
                                 <Feather
                                     name="chevron-right"
                                     color={theme.colors.highlight}
@@ -90,7 +86,6 @@ export function AppointmentCreate() {
                                 />
                             </View>
                         </RectButton>
-
                         <View style={styles.field}>
                             <View>
 
@@ -106,7 +101,6 @@ export function AppointmentCreate() {
                                     <SmallInputs maxLength={2} />
                                 </View>
                             </View>
-
                             <View>
                                 <Text style={styles.label}>
                                     Hora e minuto
@@ -121,7 +115,6 @@ export function AppointmentCreate() {
                                 </View>
                             </View>
                         </View>
-
                         <View style={[styles.field, { marginBottom: 12 }]}>
                             <Text style={styles.label}>
                                 Descrição
@@ -130,31 +123,26 @@ export function AppointmentCreate() {
                                 Max 100 caracteres
                             </Text>
                         </View>
-
                         <TextArea
                             multiline
                             maxLength={100}
                             numberOfLines={5}
                             autoCorrect={false}
                         />
-
                         <View style={styles.footer}>
                             <Button title="Agendar" />
                         </View>
                     </View>
-
                 </View>
-
             </ScrollView>
-
             <ModalView
                 visible={openGuildsModal}
+                closeModal={handleCloseGuilds}
             >
                 <Guilds
                     handleGuildsSelect={handleGuildSelect}
                 />
             </ModalView>
-
         </KeyboardAvoidingView>
     )
 }
