@@ -89,7 +89,10 @@ export function AppointmentCreate() {
                         <View style={styles.field}>
                             <View>
 
-                                <Text style={styles.label}>
+                                <Text style={[
+                                    styles.label,
+                                    { marginBottom: 12 }
+                                ]}>
                                     Dia e Mês
                                 </Text>
 
@@ -102,7 +105,10 @@ export function AppointmentCreate() {
                                 </View>
                             </View>
                             <View>
-                                <Text style={styles.label}>
+                                <Text style={[
+                                    styles.label,
+                                    { marginBottom: 12 }
+                                ]}>
                                     Hora e minuto
                                 </Text>
 
